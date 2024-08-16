@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/img">
+        <file alias="logo-blue-rgb">resources/Forze Hydrogen Racing logo blue RGB.png</file>
+    </qresource>
+</RCC>
