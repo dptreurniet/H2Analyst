@@ -12,6 +12,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets PrintSupport Concurrent)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets PrintSupport Concurrent)
 
+find_package(Boost 1.77.0 COMPONENTS algorithm)
+include_directories(${Boost_INCLUDE_DIRS})
+
+
 set(PROJECT_SOURCES
         main.cpp
         h2analyst.cpp
@@ -63,6 +67,7 @@ endif()
 target_link_libraries(h2analyst PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_link_libraries(h2analyst PRIVATE Qt${QT_VERSION_MAJOR}::PrintSupport)
 target_link_libraries(h2analyst PRIVATE Qt${QT_VERSION_MAJOR}::Concurrent)
+target_link_libraries(h2analyst ${Boost_LIBRARIES})
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
